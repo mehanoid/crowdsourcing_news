@@ -33,6 +33,8 @@ gem 'devise'
 # Authorization
 gem 'cancan'
 
+gem 'responders'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
