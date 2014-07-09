@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  check_authorization
+  check_authorization unless: :devise_controller?
 
   private
 

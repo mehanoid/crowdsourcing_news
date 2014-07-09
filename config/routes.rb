@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'news_items#index'
   devise_for :users
   resources :news_items
   # The priority is based upon order of creation: first created -> highest priority.

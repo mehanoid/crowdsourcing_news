@@ -7,9 +7,18 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    - if user_signed_in?
-      p = link_to 'Logout', destroy_user_session_path, method: :delete
-    - else
-      p = link_to 'Login', new_user_session_path
-    p#notice = notice
-    = yield
+    .navbar.navbar-default
+      .container
+        .navbar-header
+          = link_to 'CrowdSourcing News', root_path, class: 'navbar-brand'
+        ul.nav.navbar-nav.navbar-right
+          li
+            - if user_signed_in?
+              = link_to 'Logout', destroy_user_session_path, method: :delete
+            - else
+              = link_to 'Login', new_user_session_path
+    .container
+      - flash.each do |type, message|
+        .alert.alert-success = message
+    .container
+      = yield

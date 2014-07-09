@@ -7,6 +7,7 @@ gem 'rails', '4.1.4'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+gem 'bootstrap-sass'
 # Markup
 gem 'slim-rails'
 # Forms
