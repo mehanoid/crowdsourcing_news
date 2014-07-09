@@ -1,8 +1,8 @@
 class NewsItemsController < ApplicationController
-  before_action :set_news_item, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+  skip_load_resource only: :create
 
   def index
-    @news_items = NewsItem.all
     respond_with(@news_items)
   end
 
@@ -11,7 +11,6 @@ class NewsItemsController < ApplicationController
   end
 
   def new
-    @news_item = NewsItem.new
     respond_with(@news_item)
   end
 
@@ -35,10 +34,6 @@ class NewsItemsController < ApplicationController
   end
 
   private
-    def set_news_item
-      @news_item = NewsItem.find(params[:id])
-    end
-
     def news_item_params
       params.require(:news_item).permit(:title, :description, :body)
     end
