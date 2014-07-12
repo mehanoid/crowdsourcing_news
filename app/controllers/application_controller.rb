@@ -10,11 +10,24 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  check_authorization unless: :devise_controller?
+  check_authorization unless: :skip_authorization_check?
 
   private
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :nickname
   end
+
+  def skip_authorization_check?
+    devise_controller? || admin_controller?
+  end
+
+  def admin_controller?
+    self.kind_of?(ActiveAdmin::BaseController)
+  end
+
+  def after_sign_in_path_for(resource)
+    session['user_return_to'] || root_path
+  end
+
 end

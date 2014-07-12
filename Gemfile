@@ -34,6 +34,9 @@ gem 'devise'
 # Authorization
 gem 'cancan'
 
+# Admin panel
+gem 'activeadmin', github: 'gregbell/active_admin'
+
 gem 'responders'
 
 group :development do
