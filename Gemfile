@@ -21,8 +21,9 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Chosen is a library for making long, unwieldy select boxes more user friendly.
-gem 'chosen-rails'
+# Selectize is the hybrid of a textbox and <select> box. It's jQuery-based and it's
+# useful for tagging, contact lists, country selectors, and so on
+gem 'selectize-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
