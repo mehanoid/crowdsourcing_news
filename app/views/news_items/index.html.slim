@@ -2,5 +2,9 @@ h1 Listing News
 
 
 - @news_items.each do |news_item|
-  h2 = link_to news_item.title, news_item
-  = news_item.description
+  .news_item
+    h2 = link_to news_item, news_item
+    .categories
+      = render partial: 'category', collection: news_item.categories, spacer_template: 'comma'
+
+    = news_item.description

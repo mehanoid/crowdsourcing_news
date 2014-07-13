@@ -5,4 +5,8 @@ class NewsItem < ActiveRecord::Base
   validates :categories, length: { minimum: 1, message: 'should have at least one category' }
 
   default_scope { order created_at: :desc }
+
+  def to_s
+    title
+  end
 end
