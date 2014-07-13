@@ -10,6 +10,12 @@ class Ability
     if user
       can :create, NewsItem
       can :manage, NewsItem, user: user
+      if user.admin?
+        can :read, ActiveAdmin::Page, name: 'Dashboard'
+        can :destroy, NewsItem
+        can :manage, NewsCategory
+        can :manage, User
+      end
     end
     #
     # The first argument to `can` is the action you are giving the user
