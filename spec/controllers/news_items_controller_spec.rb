@@ -23,8 +23,11 @@ RSpec.describe NewsItemsController, :type => :controller do
   # This should return the minimal set of attributes required to create a valid
   # NewsItem. As you add validations to NewsItem, be sure to
   # adjust the attributes here as well.
+
+  let(:category) { create(:news_category) }
+
   let(:valid_attributes) {
-    attributes_for(:news_item)
+    attributes_for(:news_item).merge(category_ids: [category.id])
   }
 
   let(:invalid_attributes) {
