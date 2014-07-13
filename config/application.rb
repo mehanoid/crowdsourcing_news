@@ -23,6 +23,7 @@ module CrowdsourcingNews
       g.stylesheets false
       g.view_specs false
       g.request_specs false
+      g.scaffold_controller = :responders_controller
     end
   end
 end

@@ -6,6 +6,7 @@ class Ability
     #
     #   user ||= User.new # guest user (not logged in)
     can :read, NewsItem
+    can :read, NewsCategory
     if user
       can :create, NewsItem
       can :update, NewsItem, user: user

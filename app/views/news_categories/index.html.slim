@@ -1,0 +1,21 @@
+h1 Listing news_categories
+
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @news_categories.each do |news_category|
+      tr
+        td = news_category.name
+        td = link_to 'Show', news_category
+        td = link_to 'Edit', edit_news_category_path(news_category)
+        td = link_to 'Destroy', news_category, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New News category', new_news_category_path
