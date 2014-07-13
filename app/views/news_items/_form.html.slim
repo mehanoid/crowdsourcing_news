@@ -1,11 +1,13 @@
-= simple_form_for(@news_item) do |f|
-  = f.error_notification
+.raw
+  .col-xs-5
+    = simple_form_for(@news_item) do |f|
+      = f.error_notification
 
-  .form-inputs
-    = f.input :title
-    = f.input :description
-    = f.input :body
-    = f.association :categories, input_html: { class: 'chosen-select' }
+      .form-inputs
+        = f.input :title
+        = f.input :description
+        = f.input :body
+        = f.association :categories
 
-  .form-actions
-    = f.button :submit
+      .form-actions
+        = f.button :submit

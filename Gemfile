@@ -11,7 +11,7 @@ gem 'bootstrap-sass'
 # Markup
 gem 'slim-rails'
 # Forms
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
