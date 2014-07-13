@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   ActiveAdmin.routes(self)
 
-  resources :news_categories
+  resources :news_categories, only: :show
   resources :news_items
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

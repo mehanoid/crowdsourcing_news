@@ -25,14 +25,6 @@ RSpec.describe NewsCategoriesController, :type => :controller do
   # NewsCategoriesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET index" do
-    it "assigns all news_categories as @news_categories" do
-      news_category = create(:news_category)
-      get :index, {}, valid_session
-      expect(assigns(:news_categories)).to eq([news_category])
-    end
-  end
-
   describe "GET show" do
     it "assigns the requested news_category as @news_category" do
       news_category = news_category = create(:news_category)
