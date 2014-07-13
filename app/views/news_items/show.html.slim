@@ -1,16 +1,13 @@
-p
-  strong Title:
-  = @news_item.title
-p
-  strong Description:
-  = @news_item.description
-p
-  strong Body:
-  = @news_item.body
-p
-  strong User:
-  = @news_item.user
+.btn-group
+  - if can? :edit, @news_item
+    = link_to 'Edit', edit_news_item_path(@news_item), class: 'btn btn-default'
+  - if can? :destroy, @news_item
+    = link_to 'Destroy', @news_item, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
 
-= link_to 'Edit', edit_news_item_path(@news_item)
-'|
-= link_to 'Back', news_items_path
+h1.title = @news_item.title
+= render partial: 'categories_for', locals: { news_item: @news_item }
+p.author: em Posted by #{@news_item.user.nickname}
+
+
+p.description = @news_item.description
+.body = simple_format @news_item.body

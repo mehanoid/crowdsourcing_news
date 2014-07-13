@@ -9,8 +9,7 @@ class Ability
     can :read, NewsCategory
     if user
       can :create, NewsItem
-      can :update, NewsItem, user: user
-      can :destroy, NewsItem, user_id: user.id
+      can :manage, NewsItem, user: user
     end
     #
     # The first argument to `can` is the action you are giving the user

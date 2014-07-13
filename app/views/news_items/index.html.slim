@@ -4,7 +4,6 @@ h1 Listing News
 - @news_items.each do |news_item|
   .news_item
     h2 = link_to news_item, news_item
-    .categories
-      = render partial: 'category', collection: news_item.categories, spacer_template: 'comma'
+    = render partial: 'categories_for', locals: { news_item: news_item }
 
     = news_item.description
