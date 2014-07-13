@@ -5,7 +5,7 @@
     = f.input :title
     = f.input :description
     = f.input :body
-    = f.association :categories
+    = f.association :categories, input_html: { class: 'chosen-select' }
 
   .form-actions
     = f.button :submit
