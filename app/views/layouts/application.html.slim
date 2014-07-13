@@ -11,6 +11,9 @@ html
       .container
         .navbar-header
           = link_to 'CrowdSourcing News', root_path, class: 'navbar-brand'
+        ul.nav.navbar-nav
+          li = link_to 'Write News', new_news_item_path
+          li = link_to 'Categories', news_categories_path
         ul.nav.navbar-nav.navbar-right
           li
             - if user_signed_in?

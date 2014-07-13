@@ -35,6 +35,6 @@ class NewsItemsController < ApplicationController
 
   private
     def news_item_params
-      params.require(:news_item).permit(:title, :description, :body)
+      params.require(:news_item).permit(:title, :description, :body, category_ids: [])
     end
 end
