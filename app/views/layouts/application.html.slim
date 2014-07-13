@@ -24,4 +24,7 @@ html
       - flash.each do |type, message|
         .alert.alert-success = message
     .container
-      = yield
+      .row
+        .col-xs-9 = yield
+        .col-xs-3
+          = render 'news_categories_panel'

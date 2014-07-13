@@ -1,0 +1,6 @@
+.panel.panel-default
+  .panel-heading Categories
+  .panel-body
+    ul.list-unstyled
+      - @news_categories.each do |category|
+        li = link_to category, category
