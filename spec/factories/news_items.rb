@@ -5,6 +5,7 @@ FactoryGirl.define do
     title "MyString"
     description "MyString"
     body "MyText"
+    confirmed true
     user
     # association :category, factory: :news_category
     categories { [build(:news_category) ] }

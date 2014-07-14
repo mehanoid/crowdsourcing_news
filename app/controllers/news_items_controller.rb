@@ -4,6 +4,11 @@ class NewsItemsController < ApplicationController
 
   def index
     @news_items = @news_items.confirmed
+    category_id = params[:news_category_id]
+    if category_id
+      @news_category = NewsCategory.find category_id
+      @news_items = @news_items.merge(@news_category.news_items)
+    end
     respond_with(@news_items)
   end
 

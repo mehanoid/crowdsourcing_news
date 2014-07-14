@@ -45,6 +45,15 @@ RSpec.describe NewsItemsController, :type => :controller do
       get :index, {}, valid_session
       expect(assigns(:news_items)).to eq([news_item])
     end
+
+    context 'if category specified' do
+      it 'assigns items from category as @news_items' do
+        news_item = create(:news_item)
+        news_item_from_category = create(:news_item, category_ids: category.id)
+        get :index, {news_category_id: category.id}, valid_session
+        expect(assigns(:news_items)).to eq([news_item_from_category])
+      end
+    end
   end
 
   describe 'GET show' do
