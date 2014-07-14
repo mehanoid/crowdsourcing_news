@@ -3,7 +3,10 @@ h1 = @news_category || 'All News'
 
 - @news_items.each do |news_item|
   .news_item
-    h2 = link_to news_item, news_item
+    h2
+      = link_to news_item, news_item
+      - unless news_item.confirmed?
+        small.text-warning< Not confirmed
     = render partial: 'categories_for', locals: { news_item: news_item }
 
     = news_item.description
