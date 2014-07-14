@@ -2,4 +2,4 @@
   .panel-heading Categories
   .panel-body
     ul.list-unstyled
-      = render @news_categories
+      = render partial: 'news_categories/news_category', collection: @news_categories
