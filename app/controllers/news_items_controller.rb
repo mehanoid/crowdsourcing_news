@@ -3,6 +3,7 @@ class NewsItemsController < ApplicationController
   skip_load_resource only: :create
 
   def index
+    @news_items = @news_items.confirmed
     respond_with(@news_items)
   end
 
@@ -19,6 +20,7 @@ class NewsItemsController < ApplicationController
 
   def create
     @news_item = NewsItem.new news_item_params.merge(user: current_user)
+    @news_item.confirmed = true if current_user.admin?
     @news_item.save
     respond_with(@news_item)
   end

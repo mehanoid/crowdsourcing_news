@@ -5,14 +5,17 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
-    can :read, NewsItem
+
+    can :read, NewsItem, confirmed: true
     can :read, NewsCategory
+
     if user
       can :create, NewsItem
-      can :manage, NewsItem, user: user
+      can %i[read update destroy], NewsItem, user: user
+
       if user.admin?
         can :read, ActiveAdmin::Page, name: 'Dashboard'
-        can :destroy, NewsItem
+        can %i[confirm destroy], NewsItem
         can :manage, NewsCategory
         can :manage, User
       end

@@ -2,6 +2,14 @@ ActiveAdmin.register NewsItem do
 
   actions :all, except: [:new, :create, :edit, :update]
 
+  action_item only: :show, if: -> { !resource.confirmed? } do
+    link_to 'Сonfirm', confirm_admin_news_item_path(resource), method: :patch
+  end
+
+  member_action :confirm, method: :patch do
+    resource.confirm!
+    redirect_to resource_path, notice: 'Confirmed'
+  end
 
   # controller do
   #   def create
